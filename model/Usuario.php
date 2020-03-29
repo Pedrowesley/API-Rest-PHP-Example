@@ -54,7 +54,7 @@ class Usuario extends Conexao{
 
 
     public function insert($obj){
-    	$sql = "INSERT INTO usuarios (razaoSocial,cnpj,inscricaoEstadual,fone,enderecoCompleto,senha) VALUES (:razaoSocial,:cnpj,:inscricaoEstadual,:fone,:enderecoCompleto,:senha)";
+    	$sql = "INSERT INTO `login` (razaoSocial,cnpj,inscricaoEstadual,fone,enderecoCompleto,senha) VALUES (:razaoSocial,:cnpj,:inscricaoEstadual,:fone,:enderecoCompleto,:senha)";
     	$consulta = Conexao::prepare($sql);
         $consulta->bindValue('razaoSocial',  $obj->razaoSocial);
         $consulta->bindValue('cnpj', $obj->cnpj);
@@ -67,7 +67,7 @@ class Usuario extends Conexao{
 	}
 
 	public function update($obj,$id = null){
-		$sql = "UPDATE usuarios SET razaoSocial = :razaoSocial, cnpj = :cnpj,inscricaoEstadual = :inscricaoEstadual, fone = :fone,enderecoCompleto =:enderecoCompleto, senha = :senha WHERE id = :id ";
+		$sql = "UPDATE `login` SET razaoSocial = :razaoSocial, cnpj = :cnpj,inscricaoEstadual = :inscricaoEstadual, fone = :fone,enderecoCompleto =:enderecoCompleto, senha = :senha WHERE id = :id ";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('razaoSocial', $obj->razaoSocial);
 		$consulta->bindValue('cnpj', $obj->cnpj);
@@ -80,7 +80,7 @@ class Usuario extends Conexao{
 	}
 
 	public function delete($obj,$id = null){
-		$sql =  "DELETE FROM usuarios WHERE id = :id";
+		$sql =  "DELETE FROM `login` WHERE id = :id";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('id',$id);
 		$consulta->execute();
@@ -91,7 +91,7 @@ class Usuario extends Conexao{
 	}
 
 	public function findAll(){
-		$sql = "SELECT * FROM conteudo";
+		$sql = "SELECT * FROM `login`";
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
 		return $consulta->fetchAll();
