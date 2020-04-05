@@ -8,7 +8,7 @@ echo $obj;
 
 
 if(!empty($data)){	
- $usuarioControl = new ConteudoControl();
+ $usuarioControl = new UsuarioControl();
  $usuarioControl->insert($obj);
  header('Location:listar.php');
 }
